@@ -1,0 +1,55 @@
+.dashboard-edit-update-container{
+    width: 300px;
+    padding: 16px;
+    margin: auto auto;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    top: 0px;
+    left: 0;
+    right: 0;
+}
+
+.dashboard-remarks-container{
+    width: 300px;
+    padding: 16px;
+    margin: auto auto;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    top: 0px;
+    left: 0;
+    right: 0;
+}
+
+.dashboard-logo-container{
+    width: 600px;
+    opacity: .4;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    
+    img{
+        width: 100%;
+    }
+}
+
+.dashbord-btn-mpuj-nav{
+    background-color: transparent;
+    border: none;
+}
+
+.dashboard-container-nav-mpuj{
+    width: 200px;
+    background-color: white;
+    padding: 16px;
+    border-radius: 8px;
+
+    a{
+        color: black;
+    }
+}

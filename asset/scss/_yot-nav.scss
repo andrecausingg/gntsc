@@ -1,0 +1,15 @@
+.yot-nav-active{
+    border-bottom: 3px solid $yot-vibrant-orange;
+}
+
+a{
+    border-bottom: 3px solid transparent;
+}
+
+a:hover{
+    border-bottom: 3px solid $yot-vibrant-orange;
+}
+
+.remove-hover:hover{
+    border-bottom: 0px solid $yot-vibrant-orange;
+}

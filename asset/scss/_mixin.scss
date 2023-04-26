@@ -1,0 +1,122 @@
+/* 576px */
+@media only screen and (min-width: 36em){  /* Small devices (portrait tablets and large phones)*/
+    html {
+        font-size: 1.2rem;
+    }
+}
+                                /* 768px */
+@media only screen and (min-width: 48em){ /* Medium devices (landscape tablets) */
+    html {
+        font-size: 1.4rem;
+    }
+
+    .dashboard-container-item{
+        display: grid;
+        grid-template-columns: auto auto;
+        column-gap: 15px;
+    }
+
+    .dashboard-edit-update-container{
+        width: 700px !important;
+    }
+
+    .dashboard-remarks-container{
+        width: 700px !important;
+    }
+
+    .yot-flex-tab{
+        display: flex;
+    }
+
+    .yot-form-input-seperator{
+        margin: 0px 16px;
+    }
+
+    .yot-form-select-seperator{
+        margin-left: 16px !important;
+        margin-right: 16px !important;
+    }
+
+    .dashboard-notification-container{
+        // margin: auto auto;
+        position: relative !important;
+        left: 0 !important;
+        width: 500px;
+    }
+
+    .dashboard-image-display{
+        width: 400px !important;
+    }
+
+    .yot-hide-for-mobile-login{
+        display: none !important;
+    }
+}
+
+                                /* 992px */
+@media only screen and (min-width: 62em){ /* Large devices (laptops/desktops) */
+    html {
+        font-size: 1.6rem;
+    }
+
+    .yot-form-container{
+        width: 395px !important;
+    }
+
+    .yot-right-container{
+        margin-right: 300px;
+    }
+
+    .dashboard-logo{
+        justify-content: center !important;
+    }
+
+    // .dashboard-container{
+    //     display: flex;
+    // }
+
+    .dashboard-image-no-expired{
+        width: 300px;
+    }
+
+    .yot-hide-for-mobile-login{
+        display: block !important;
+    }
+
+    .yot-row-b-exp{
+        display: flex;
+    }
+
+    .dashboard-container-item-b-exp{
+        display: grid;
+        grid-template-columns: auto auto;
+        column-gap: 15px;
+    }
+}
+
+                                /* 1200px */
+@media only screen and (min-width: 75em){  /* Extra large devices (large laptops and desktops, 1200px and up) */
+    .dashboard-right-section{
+        width: 20% !important;
+    }
+
+    .dashboard-remarks-container{
+        width: 1000px !important;
+        padding: 24px !important;
+    }
+
+    .dashboard-section-rightF{
+        margin-top: 15px !important;
+    }
+
+    .dashboard-container{
+        display: flex;
+    }
+
+    .yot-overlay-left{
+        position: static !important;
+    }
+}
+                                /* 1400px */
+@media only screen and (min-width: 87.5em){ /* Tv */
+}

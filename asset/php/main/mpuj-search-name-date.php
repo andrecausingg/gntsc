@@ -1,0 +1,280 @@
+<?php
+    if(isset($_POST["searchName"]) || isset($_POST["startDate"]) || isset($_POST["endDate"])){
+        $classSearch = new classSearch($_POST["searchName"], $_POST["startDate"], $_POST["endDate"]);
+        $classSearch->getSearch();
+    }
+
+class classSearch{
+    private $searchName;
+    private $startDate;
+    private $endDate;
+
+    function __construct($searchName, $startDate, $endDate){
+        $this->searchName = $searchName;
+        $this->startDate = $startDate;
+        $this->endDate = $endDate;
+    }
+
+    function getSearch(){
+        // File Connection Database
+        require_once("../helper/database-connection/connectionHF.php");
+
+        // CLASS Connection on Database 
+        $classDataBaseConnection = new classDataBaseConnection();
+
+        $search = mysqli_real_escape_string($classDataBaseConnection->connect(), $this->searchName);
+        $searchStartDate = mysqli_real_escape_string($classDataBaseConnection->connect(), $this->startDate);
+        $searchEndDate = mysqli_real_escape_string($classDataBaseConnection->connect(), $this->endDate);
+        
+        if($this->searchName != "" && $this->startDate !="" && $this->endDate){
+            $query = " SELECT * FROM mpuj_info_tbl WHERE mit_datee BETWEEN '$searchStartDate' AND '$searchEndDate' AND (mit_chassis_num LIKE '%".$search."%' OR mit_engine LIKE '%".$search."%' OR mit_plate_num LIKE '%".$search."%' OR mit_mpuj_num LIKE '%".$search."%' OR mit_status LIKE '%".$search."%') ";
+            $result = mysqli_query($classDataBaseConnection->connect(), $query);
+            if(mysqli_num_rows($result) > 0){
+                while($row = mysqli_fetch_array($result)){
+                    $db_mit_id = $row["mit_id"];
+                    $db_mit_engine = $row["mit_engine"];
+                    $db_mit_chassis_num = $row["mit_chassis_num"];
+                    $db_mit_plate_num = $row["mit_plate_num"];
+                    $db_mit_mpuj_num = $row["mit_mpuj_num"];
+                    $db_mit_status = $row["mit_status"];
+                    $db_mit_time = $row["mit_time"];
+                    $db_mit_datee = $row["mit_datee"];
+
+                    echo'
+                        <tr>
+                            <td>' . $db_mit_chassis_num .'</td>
+                            <td>' . $db_mit_engine .'</td>
+                            <td>' . $db_mit_plate_num .'</td>
+                            <td>' . $db_mit_mpuj_num .'</td>
+                            <td>' . $db_mit_status .'</td>
+                            <td>' . $db_mit_time .'</td>
+                            <td>' . $db_mit_datee .'</td>
+                            <td class="yot-flex">
+                                <i class="fa-solid fa-file-pen  yot-text-fs-l yot-cursor-pointer yot-active yot-pr-8" id="edit" data-id='. $db_mit_id .'></i>
+                                <i class="fa-solid fa-trash yot-text-fs-l yot-cursor-pointer yot-active yot-pl-8" id="delete" data-id=' . $db_mit_id .'></i>
+                            </td>
+                        </tr>
+                    ';
+                }
+            }
+        }else if($this->searchName != "" && $this->startDate !=""){
+            $query = " SELECT * FROM mpuj_info_tbl WHERE mit_datee = '$searchStartDate' AND (mit_chassis_num LIKE '%".$search."%' OR mit_engine LIKE '%".$search."%' OR mit_plate_num LIKE '%".$search."%' OR mit_mpuj_num LIKE '%".$search."%' OR mit_status LIKE '%".$search."%') ";
+            $result = mysqli_query($classDataBaseConnection->connect(), $query);
+            if(mysqli_num_rows($result) > 0){
+                while($row = mysqli_fetch_array($result)){
+                    $db_mit_id = $row["mit_id"];
+                    $db_mit_engine = $row["mit_engine"];
+                    $db_mit_chassis_num = $row["mit_chassis_num"];
+                    $db_mit_plate_num = $row["mit_plate_num"];
+                    $db_mit_mpuj_num = $row["mit_mpuj_num"];
+                    $db_mit_status = $row["mit_status"];
+                    $db_mit_time = $row["mit_time"];
+                    $db_mit_datee = $row["mit_datee"];
+
+                    echo'
+                        <tr>
+                            <td>' . $db_mit_chassis_num .'</td>
+                            <td>' . $db_mit_engine .'</td>
+                            <td>' . $db_mit_plate_num .'</td>
+                            <td>' . $db_mit_mpuj_num .'</td>
+                            <td>' . $db_mit_status .'</td>
+                            <td>' . $db_mit_time .'</td>
+                            <td>' . $db_mit_datee .'</td>
+                            <td class="yot-flex">
+                                <i class="fa-solid fa-file-pen  yot-text-fs-l yot-cursor-pointer yot-active yot-pr-8" id="edit" data-id='. $db_mit_id .'></i>
+                                <i class="fa-solid fa-trash yot-text-fs-l yot-cursor-pointer yot-active yot-pl-8" id="delete" data-id=' . $db_mit_id .'></i>
+                            </td>
+                        </tr>
+                    ';
+                }
+            }
+        }else if($this->searchName != "" && $this->endDate !=""){
+            $query = " SELECT * FROM mpuj_info_tbl WHERE mit_datee = '$searchEndDate' AND (mit_chassis_num LIKE '%".$search."%' OR mit_engine LIKE '%".$search."%' OR mit_plate_num LIKE '%".$search."%' OR mit_mpuj_num LIKE '%".$search."%' OR mit_status LIKE '%".$search."%') ";
+            $result = mysqli_query($classDataBaseConnection->connect(), $query);
+            if(mysqli_num_rows($result) > 0){
+                while($row = mysqli_fetch_array($result)){
+                    $db_mit_id = $row["mit_id"];
+                    $db_mit_engine = $row["mit_engine"];
+                    $db_mit_chassis_num = $row["mit_chassis_num"];
+                    $db_mit_plate_num = $row["mit_plate_num"];
+                    $db_mit_mpuj_num = $row["mit_mpuj_num"];
+                    $db_mit_status = $row["mit_status"];
+                    $db_mit_time = $row["mit_time"];
+                    $db_mit_datee = $row["mit_datee"];
+
+                    echo'
+                        <tr>
+                            <td>' . $db_mit_chassis_num .'</td>
+                            <td>' . $db_mit_engine .'</td>
+                            <td>' . $db_mit_plate_num .'</td>
+                            <td>' . $db_mit_mpuj_num .'</td>
+                            <td>' . $db_mit_status .'</td>
+                            <td>' . $db_mit_time .'</td>
+                            <td>' . $db_mit_datee .'</td>
+                            <td class="yot-flex">
+                                <i class="fa-solid fa-file-pen  yot-text-fs-l yot-cursor-pointer yot-active yot-pr-8" id="edit" data-id='. $db_mit_id .'></i>
+                                <i class="fa-solid fa-trash yot-text-fs-l yot-cursor-pointer yot-active yot-pl-8" id="delete" data-id=' . $db_mit_id .'></i>
+                            </td>
+                        </tr>
+                    ';
+                }
+            }
+        }else if($this->startDate !="" && $this->endDate != ""){
+            $query = " SELECT * FROM mpuj_info_tbl WHERE mit_datee BETWEEN '$searchStartDate' AND '$searchEndDate' ";
+            $result = mysqli_query($classDataBaseConnection->connect(), $query);
+            if(mysqli_num_rows($result) > 0){
+                while($row = mysqli_fetch_array($result)){
+                    $db_mit_id = $row["mit_id"];
+                    $db_mit_engine = $row["mit_engine"];
+                    $db_mit_chassis_num = $row["mit_chassis_num"];
+                    $db_mit_plate_num = $row["mit_plate_num"];
+                    $db_mit_mpuj_num = $row["mit_mpuj_num"];
+                    $db_mit_status = $row["mit_status"];
+                    $db_mit_time = $row["mit_time"];
+                    $db_mit_datee = $row["mit_datee"];
+
+                    echo'
+                        <tr>
+                            <td>' . $db_mit_chassis_num .'</td>
+                            <td>' . $db_mit_engine .'</td>
+                            <td>' . $db_mit_plate_num .'</td>
+                            <td>' . $db_mit_mpuj_num .'</td>
+                            <td>' . $db_mit_status .'</td>
+                            <td>' . $db_mit_time .'</td>
+                            <td>' . $db_mit_datee .'</td>
+                            <td class="yot-flex">
+                                <i class="fa-solid fa-file-pen  yot-text-fs-l yot-cursor-pointer yot-active yot-pr-8" id="edit" data-id='. $db_mit_id .'></i>
+                                <i class="fa-solid fa-trash yot-text-fs-l yot-cursor-pointer yot-active yot-pl-8" id="delete" data-id=' . $db_mit_id .'></i>
+                            </td>
+                        </tr>
+                    ';
+                }
+            }
+        }else if($this->searchName != ""){
+            $query = " SELECT * FROM mpuj_info_tbl WHERE (mit_chassis_num LIKE '%".$search."%' OR mit_engine LIKE '%".$search."%' OR mit_plate_num LIKE '%".$search."%' OR mit_mpuj_num LIKE '%".$search."%' OR mit_status LIKE '%".$search."%') ";
+            $result = mysqli_query($classDataBaseConnection->connect(), $query);
+            if(mysqli_num_rows($result) > 0){
+                while($row = mysqli_fetch_array($result)){
+                    $db_mit_id = $row["mit_id"];
+                    $db_mit_engine = $row["mit_engine"];
+                    $db_mit_chassis_num = $row["mit_chassis_num"];
+                    $db_mit_plate_num = $row["mit_plate_num"];
+                    $db_mit_mpuj_num = $row["mit_mpuj_num"];
+                    $db_mit_status = $row["mit_status"];
+                    $db_mit_time = $row["mit_time"];
+                    $db_mit_datee = $row["mit_datee"];
+
+                    echo'
+                        <tr>
+                            <td>' . $db_mit_chassis_num .'</td>
+                            <td>' . $db_mit_engine .'</td>
+                            <td>' . $db_mit_plate_num .'</td>
+                            <td>' . $db_mit_mpuj_num .'</td>
+                            <td>' . $db_mit_status .'</td>
+                            <td>' . $db_mit_time .'</td>
+                            <td>' . $db_mit_datee .'</td>
+                            <td class="yot-flex">
+                                <i class="fa-solid fa-file-pen  yot-text-fs-l yot-cursor-pointer yot-active yot-pr-8" id="edit" data-id='. $db_mit_id .'></i>
+                                <i class="fa-solid fa-trash yot-text-fs-l yot-cursor-pointer yot-active yot-pl-8" id="delete" data-id=' . $db_mit_id .'></i>
+                            </td>
+                        </tr>
+                    ';
+                }
+            }
+        }else if($this->startDate !=""){
+            $query = " SELECT * FROM mpuj_info_tbl WHERE mit_datee = '$searchStartDate' ";
+            $result = mysqli_query($classDataBaseConnection->connect(), $query);
+            if(mysqli_num_rows($result) > 0){
+                while($row = mysqli_fetch_array($result)){
+                    $db_mit_id = $row["mit_id"];
+                    $db_mit_engine = $row["mit_engine"];
+                    $db_mit_chassis_num = $row["mit_chassis_num"];
+                    $db_mit_plate_num = $row["mit_plate_num"];
+                    $db_mit_mpuj_num = $row["mit_mpuj_num"];
+                    $db_mit_status = $row["mit_status"];
+                    $db_mit_time = $row["mit_time"];
+                    $db_mit_datee = $row["mit_datee"];
+
+                    echo'
+                        <tr>
+                            <td>' . $db_mit_chassis_num .'</td>
+                            <td>' . $db_mit_engine .'</td>
+                            <td>' . $db_mit_plate_num .'</td>
+                            <td>' . $db_mit_mpuj_num .'</td>
+                            <td>' . $db_mit_status .'</td>
+                            <td>' . $db_mit_time .'</td>
+                            <td>' . $db_mit_datee .'</td>
+                            <td class="yot-flex">
+                                <i class="fa-solid fa-file-pen  yot-text-fs-l yot-cursor-pointer yot-active yot-pr-8" id="edit" data-id='. $db_mit_id .'></i>
+                                <i class="fa-solid fa-trash yot-text-fs-l yot-cursor-pointer yot-active yot-pl-8" id="delete" data-id=' . $db_mit_id .'></i>
+                            </td>
+                        </tr>
+                    ';
+                }
+            }
+        }else if($this->endDate != ""){
+            $query = " SELECT * FROM mpuj_info_tbl WHERE mit_datee '$searchEndDate' ";
+            $result = mysqli_query($classDataBaseConnection->connect(), $query);
+            if(mysqli_num_rows($result) > 0){
+                while($row = mysqli_fetch_array($result)){
+                    $db_mit_id = $row["mit_id"];
+                    $db_mit_engine = $row["mit_engine"];
+                    $db_mit_chassis_num = $row["mit_chassis_num"];
+                    $db_mit_plate_num = $row["mit_plate_num"];
+                    $db_mit_mpuj_num = $row["mit_mpuj_num"];
+                    $db_mit_status = $row["mit_status"];
+                    $db_mit_time = $row["mit_time"];
+                    $db_mit_datee = $row["mit_datee"];
+
+                    echo'
+                        <tr>
+                            <td>' . $db_mit_chassis_num .'</td>
+                            <td>' . $db_mit_engine .'</td>
+                            <td>' . $db_mit_plate_num .'</td>
+                            <td>' . $db_mit_mpuj_num .'</td>
+                            <td>' . $db_mit_status .'</td>
+                            <td>' . $db_mit_time .'</td>
+                            <td>' . $db_mit_datee .'</td>
+                            <td class="yot-flex">
+                                <i class="fa-solid fa-file-pen  yot-text-fs-l yot-cursor-pointer yot-active yot-pr-8" id="edit" data-id='. $db_mit_id .'></i>
+                                <i class="fa-solid fa-trash yot-text-fs-l yot-cursor-pointer yot-active yot-pl-8" id="delete" data-id=' . $db_mit_id .'></i>
+                            </td>
+                        </tr>
+                    ';
+                }
+            }
+        }else if($this->searchName == "" || $this->startDate == "" || $this->endDate == ""){
+            $query = " SELECT * FROM mpuj_info_tbl";
+            $result = mysqli_query($classDataBaseConnection->connect(), $query);
+            if(mysqli_num_rows($result) > 0){
+                while($row = mysqli_fetch_array($result)){
+                    $db_mit_id = $row["mit_id"];
+                    $db_mit_engine = $row["mit_engine"];
+                    $db_mit_chassis_num = $row["mit_chassis_num"];
+                    $db_mit_plate_num = $row["mit_plate_num"];
+                    $db_mit_mpuj_num = $row["mit_mpuj_num"];
+                    $db_mit_status = $row["mit_status"];
+                    $db_mit_time = $row["mit_time"];
+                    $db_mit_datee = $row["mit_datee"];
+
+                    echo'
+                        <tr>
+                            <td>' . $db_mit_chassis_num .'</td>
+                            <td>' . $db_mit_engine .'</td>
+                            <td>' . $db_mit_plate_num .'</td>
+                            <td>' . $db_mit_mpuj_num .'</td>
+                            <td>' . $db_mit_status .'</td>
+                            <td>' . $db_mit_time .'</td>
+                            <td>' . $db_mit_datee .'</td>
+                            <td class="yot-flex">
+                                <i class="fa-solid fa-file-pen  yot-text-fs-l yot-cursor-pointer yot-active yot-pr-8" id="edit" data-id='. $db_mit_id .'></i>
+                                <i class="fa-solid fa-trash yot-text-fs-l yot-cursor-pointer yot-active yot-pl-8" id="delete" data-id=' . $db_mit_id .'></i>
+                            </td>
+                        </tr>
+                    ';
+                }
+            }
+        }
+    }
+}
+?>

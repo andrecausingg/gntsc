@@ -1,0 +1,77 @@
+.yot-styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    width: 100%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    font-weight: bold;
+    background-color: #ffffff;
+}
+
+.yot-styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+
+.yot-styled-table th,
+.yot-styled-table td {
+    padding: 12px 15px;
+}
+
+.yot-styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.yot-styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.yot-styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.yot-styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+
+// 
+
+.yot-styled-table-remarks {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    width: 100%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.yot-styled-table-remarks thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+.yot-styled-table-remarks th,
+.yot-styled-table-remarks td {
+    padding: 12px 15px;
+}
+
+.yot-styled-table-remarks tbody tr {
+    border-bottom: 1px solid #dddddd;
+    text-align: left;
+}
+
+.yot-styled-table-remarks tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.yot-styled-table-remarks tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+

@@ -1,0 +1,12 @@
+
+# HTID:20873884: DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES BELOW
+php_value display_errors 1
+# DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES ABOVE HTID:20873884:
+
+Header set Access-Control-Allow-Origin "*"
+
+Options -MultiViews 
+RewriteEngine On 
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteRule ^([^\.]+)$ $1.php [NC,L]

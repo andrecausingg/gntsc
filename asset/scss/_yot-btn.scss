@@ -1,0 +1,100 @@
+// Primary Btn
+.yot-btn-primary{
+    border:none;
+    display:inline-block;
+    padding:12px 24px;
+    cursor:pointer;
+    font-weight: bolder;
+    border-radius: 10px;
+
+    width: 100%;
+    font-size: $yot-fs-sm;
+    background-color:$yot-vibrant-orange;
+    color: $yot-white;
+}
+
+.yot-btn-primary:hover{
+    // background-color: $yot-very-dark-cyan;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+// Secondary Btn
+.yot-btn-secondary{
+    border:none;
+    display:inline-block;
+    padding:12px 24px;
+    cursor:pointer;
+    font-weight: bolder;
+    border-radius: 10px;
+
+    width: 100%;
+    font-size: $yot-fs-sm;
+    background-color:$yot-sea-of-tears;
+    color: $yot-white;
+}
+
+.yot-btn-secondary:hover{
+    // background-color: $yot-very-dark-cyan;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+// Tertiary Btn
+.yot-btn-tertiary{
+    border:none;
+    display:inline-block;
+    padding:12px 24px;
+    cursor:pointer;
+    font-weight: bolder;
+    border-radius: 10px;
+
+    width: 100%;
+    font-size: $yot-fs-sm;
+    background-color:$yot-aconite-purple;
+    color: $yot-white;
+}
+
+.yot-btn-tertiary:hover{
+    // background-color: $yot-very-dark-cyan;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+// Quaternary Btn
+.yot-btn-quaternary{
+    border:none;
+    display:inline-block;
+    padding:12px 24px;
+    cursor:pointer;
+    font-weight: bolder;
+    border-radius: 10px;
+
+    width: 100%;
+    font-size: $yot-fs-sm;
+    background-color:$yot-rapsody-blue;
+    color: $yot-white;
+}
+
+.yot-btn-Quaternary:hover{
+    // background-color: $yot-very-dark-cyan;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+// Quaternary Btn
+.yot-btn-five{
+    border:none;
+    display:inline-block;
+    padding:12px 24px;
+    cursor:pointer;
+    font-weight: bolder;
+    border-radius: 10px;
+
+    width: 100%;
+    font-size: $yot-fs-sm;
+    background-color:$yot-see-goddess;
+    color: $yot-white;
+}
+
+.yot-btn-five:hover{
+    // background-color: $yot-very-dark-cyan;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+

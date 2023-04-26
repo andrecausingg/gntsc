@@ -1,0 +1,31 @@
+.yot-overlay-left{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.yot-overlay-mid{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color:$yot-white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.yot-overlay-mid-child{
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.yot-overlay-mid-dashboard-form{
+    background-color: hsl(262, 64%, 8%, 0.6);
+    color: $yot-white;
+}
